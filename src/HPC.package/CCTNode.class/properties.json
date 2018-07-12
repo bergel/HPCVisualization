@@ -1,0 +1,17 @@
+{
+	"commentStamp" : "",
+	"super" : "Object",
+	"category" : "HPC",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"id",
+		"nodeName",
+		"metrics",
+		"parent",
+		"children"
+	],
+	"name" : "CCTNode",
+	"type" : "normal"
+}
