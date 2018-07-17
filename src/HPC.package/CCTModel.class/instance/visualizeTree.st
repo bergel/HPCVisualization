@@ -1,5 +1,5 @@
-as yet unclassified
-visualizeNotNormalizedGrid
+ui
+visualizeTree
 	| b |
 	b := RTMondrian new.
 	b shape box

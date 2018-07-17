@@ -1,4 +1,4 @@
-as yet unclassified
+ui
 visualizeActiveProcesses
 	| b |
 	b := RTMondrian new.

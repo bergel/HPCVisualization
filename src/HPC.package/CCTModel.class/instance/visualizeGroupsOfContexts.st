@@ -1,4 +1,4 @@
-as yet unclassified
+ui
 visualizeGroupsOfContexts
 	| b groupedByAssocs |
 	groupedByAssocs := ccts groupedBy: #nodeName.

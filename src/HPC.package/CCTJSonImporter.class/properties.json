@@ -5,15 +5,7 @@
 	"classinstvars" : [ ],
 	"pools" : [ ],
 	"classvars" : [ ],
-	"instvars" : [
-		"id",
-		"nodeName",
-		"metrics",
-		"parent",
-		"parentId",
-		"children",
-		"regionId"
-	],
-	"name" : "CCTNode",
+	"instvars" : [ ],
+	"name" : "CCTJSonImporter",
 	"type" : "normal"
 }

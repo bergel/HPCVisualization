@@ -1,3 +1,3 @@
 accessing
-parent: anObject
-	parent := anObject
+parent: anInteger
+	parent := anInteger
