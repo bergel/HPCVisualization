@@ -4,8 +4,8 @@ importFilename: aFullFilename
 	"
 	| m |
 	m := CCTModel new.
-	m importFilename: '/Users/alexandrebergel/Desktop/cleanedTimeData.tsv'.
-	m importConnectionsFromFilename: '/Users/alexandrebergel/Desktop/connections.tsv'.
+	m importFilename: '/Users/alexandrebergel/Dropbox/GitRepos/HPCVisualization/data/cleanedTimeData.tsv'.
+	m importConnectionsFromFilename: '/Users/alexandrebergel/Dropbox/GitRepos/HPCVisualization/data/connections.tsv'.
 	m
 	"
 
