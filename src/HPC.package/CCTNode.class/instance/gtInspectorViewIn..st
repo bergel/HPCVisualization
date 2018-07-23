@@ -1,4 +1,4 @@
-as yet unclassified
+visualizations
 gtInspectorViewIn: composite
 	<gtInspectorPresentationOrder: -10>
 	composite roassal2

@@ -7,7 +7,8 @@ visualizeTree
 	b nodes: ccts.
 	b layout radial.
 	b normalizer
-		normalizeColor: #max.
+		normalizeColor: #max;
+		alphaColor: 0.4.
 		
-	b edges connectFrom: #parent.
+	b edges moveBehind; connectFrom: #parent.
 	^ b
