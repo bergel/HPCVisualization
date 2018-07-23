@@ -1,6 +1,6 @@
 ui
 visualizeGroupsOfContexts
-	| b groupedByAssocs |
+	| b groupedByAssocs lb |
 	groupedByAssocs := ccts groupedBy: #nodeName.
 	b := RTMondrian new.
 	b nodes: groupedByAssocs associations forEach: [ :assoc |
@@ -10,4 +10,13 @@ visualizeGroupsOfContexts
 		b layout grid.
 	].
 	b layout grid.
-	^ b
+	b build.
+
+	lb := RTLegendBuilder new.
+	lb view: b view.
+	lb addText: 'This visualizations shows functions and their corresponding CCT nodes'.
+	lb addText: 'Large Box = a function'.
+	lb addText: 'Inner box = a calling context'.
+	lb build.
+	
+	^ b view
