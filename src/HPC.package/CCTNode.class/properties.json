@@ -12,7 +12,8 @@
 		"parent",
 		"parentId",
 		"children",
-		"regionId"
+		"regionId",
+		"function"
 	],
 	"name" : "CCTNode",
 	"type" : "normal"

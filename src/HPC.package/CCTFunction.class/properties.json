@@ -6,9 +6,11 @@
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"ccts",
-		"functions"
+		"functionName",
+		"cctNodes",
+		"incomingFunctions",
+		"outgoingFunctions"
 	],
-	"name" : "CCTModel",
+	"name" : "CCTFunction",
 	"type" : "normal"
 }

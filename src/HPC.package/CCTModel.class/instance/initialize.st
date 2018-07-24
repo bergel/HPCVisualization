@@ -1,4 +1,5 @@
 initialization
 initialize
 	super initialize.
-	ccts := OrderedCollection new
+	ccts := OrderedCollection new.
+	functions := OrderedCollection new

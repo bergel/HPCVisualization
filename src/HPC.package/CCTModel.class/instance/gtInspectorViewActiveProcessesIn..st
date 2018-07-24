@@ -1,4 +1,4 @@
-ui
+visualizations
 gtInspectorViewActiveProcessesIn: composite
 	<gtInspectorPresentationOrder: -10>
 	composite roassal2

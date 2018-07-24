@@ -1,3 +1,4 @@
 public - adding
-addNode: node
-	^ ccts add: node
+addNode: aCCTNode
+	"Add a node to the model"
+	^ ccts add: aCCTNode

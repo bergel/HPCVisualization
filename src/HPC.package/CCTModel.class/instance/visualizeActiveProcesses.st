@@ -1,4 +1,4 @@
-ui
+visualizations
 visualizeActiveProcesses
 	| b lb |
 	b := RTMondrian new.

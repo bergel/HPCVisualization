@@ -1,8 +1,9 @@
-ui
+visualizations
 visualizeGroupsOfContexts
 	| b groupedByAssocs lb |
 	groupedByAssocs := ccts groupedBy: #nodeName.
 	b := RTMondrian new.
+	b shape box withTextAbove: #key.
 	b nodes: groupedByAssocs associations forEach: [ :assoc |
 		b shape box
 			width: #max; height: #min.
