@@ -7,3 +7,4 @@ initialize
 	
 	parent := -1.
 	children := OrderedCollection new.
+	

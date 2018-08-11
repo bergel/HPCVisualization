@@ -1,5 +1,6 @@
 public - importing
 ensureConnection
+	"Connect all the nodes together"
 	| parentNode |
 	ccts copy
 		do: [ :aCCt | 
