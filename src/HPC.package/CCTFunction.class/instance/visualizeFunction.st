@@ -40,4 +40,6 @@ visualizeFunction
 	b edges 
 		objects: self incomingFunctions, self outgoingFunctions, (Array with: self);
 		connectToAll: #outgoingFunctions.
+
+	b normalizer normalizeLineWidth: [ :from :to | to shareOfFunction: from ].
 	^ b
