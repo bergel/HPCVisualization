@@ -81,6 +81,15 @@ CCTModel >> gtInspectorGridIn: composite [
 ]
 
 { #category : #visualizations }
+CCTModel >> gtInspectorProcessesIn: composite [
+	<gtInspectorPresentationOrder: -10>
+	composite roassal2
+		title: 'Processes';
+		initializeView: [ 
+			self visualizeComputingUnits  ]
+]
+
+{ #category : #visualizations }
 CCTModel >> gtInspectorViewActiveProcessesIn: composite [
 	<gtInspectorPresentationOrder: -10>
 	composite roassal2
@@ -200,8 +209,8 @@ CCTModel >> visualizeComputingUnits [
 	b nodes: (computingUnits reverseSortedAs: #average).
 	b layout grid.
 	b normalizer
-		normalizeHeight: #max;
-		normalizeWidth: #min;
+		normalizeHeight: #min;
+		normalizeWidth: #max;
 		normalizeColor: #average.
 	b build.
 	
