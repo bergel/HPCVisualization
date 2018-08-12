@@ -22,7 +22,7 @@ CCTJSonImporter >> importFromString: aString [
 	
 	"
 	
-	| rawData cnodes m node function |
+	| rawData cnodes m node function numberOfComputingUnits |
 	rawData := NeoJSONReader fromString: aString.
 	cnodes := (rawData at: 'metrics') first at: 'cnodes'.
 	
@@ -43,6 +43,17 @@ CCTJSonImporter >> importFromString: aString [
 		m addNode: node.
 	].
 
+
+	numberOfComputingUnits := m nodes first metrics size.
+	1 to: numberOfComputingUnits do: [ :i |
+		| cu |
+		cu := CCTComputingUnit new id: i; yourself.
+		
+		"Not sure whether this is important"
+		cu ccts: m nodes.
+		m addComputingUnit: cu
+	].
+	
 	m ensureConnection.
 	^ m
 ]

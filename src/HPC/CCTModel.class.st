@@ -3,10 +3,16 @@ Class {
 	#superclass : #Object,
 	#instVars : [
 		'ccts',
-		'functions'
+		'functions',
+		'computingUnits'
 	],
-	#category : 'HPC'
+	#category : #HPC
 }
+
+{ #category : #'public - adding' }
+CCTModel >> addComputingUnit: aCU [
+	computingUnits add: aCU
+]
 
 { #category : #'public - adding' }
 CCTModel >> addNode: aCCTNode [
@@ -128,7 +134,8 @@ CCTModel >> importFilename: aFullFilename [
 CCTModel >> initialize [
 	super initialize.
 	ccts := OrderedCollection new.
-	functions := OrderedCollection new
+	functions := OrderedCollection new.
+	computingUnits := OrderedCollection new
 ]
 
 { #category : #accessing }
@@ -183,6 +190,30 @@ CCTModel >> visualizeCCT [
 	lb addText: 'Box height = Minimum values of the self time, across computational units'.
 	lb addText: 'Box color = Box width'.
 	lb build.
+	^ b view
+]
+
+{ #category : #visualizations }
+CCTModel >> visualizeComputingUnits [
+	| b lb |
+	b := RTMondrian new.
+	b nodes: (computingUnits reverseSortedAs: #average).
+	b layout grid.
+	b normalizer
+		normalizeHeight: #max;
+		normalizeWidth: #min;
+		normalizeColor: #average.
+	b build.
+	
+	lb := RTLegendBuilder new.
+	lb view: b view.
+	lb addText: 'This visualizations indicates how processing units are used'.
+	lb addText: 'Box = a processing unit (e.g., a core, a thread)'.
+	lb addText: 'Box height = the maximum value of consumption'.
+	lb addText: 'Box width = the minimum value of consumption'.
+	lb addColorFadingFrom: Color gray to: Color red text: 'Average of consumption (gray = low consumption, and red = high)'.
+	lb build.
+	
 	^ b view
 ]
 
