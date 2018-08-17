@@ -20,6 +20,35 @@ CCTModel >> addNode: aCCTNode [
 	^ ccts add: aCCTNode
 ]
 
+{ #category : #visualizations }
+CCTModel >> createArcsFor: element in: view [
+	| color radius arc arcs angle size data |
+	size := 100.
+	data := element model metrics copyFrom: 1 to: size.
+	color := RTScale linear 
+		domain: { data min. data max max: 0.0001 };
+		range: { Color lightGray. Color red }.
+	radius := element trachelShape width / 2.
+	arc := RTArc new
+		color: [ :m | color scale: m ] ;
+		innerRadius: radius + (radius * 0.1) ;
+		externalRadius: radius + (radius * 0.3).
+	arcs := arc elementsOn: data.
+	
+	angle := RTScale linear
+		domain: { 1. arcs size};
+		range: #(90 270).
+	arcs doWithIndex: [ :a :i | | ang |
+		ang := angle scale: i.
+		a trachelShape 
+			alphaAngle: ang;
+			betaAngle: ang + 1;
+			translateTo: element position.
+		TRConstraint fix: a for: element ].
+	
+	view addAll: arcs.
+]
+
 { #category : #'public - importing' }
 CCTModel >> ensureConnection [
 	"Connect all the nodes together"
@@ -107,6 +136,14 @@ CCTModel >> gtInspectorViewGroupOfContextsIn: composite [
 			self visualizeGroupsOfContexts  ]
 ]
 
+{ #category : #visualizations }
+CCTModel >> gtNewArcVisualization: composite [
+	<gtInspectorPresentationOrder: -30>
+	composite roassal2
+		title: 'Arcs and lines';
+		initializeView: [ self visualizeArcsAndLines ]
+]
+
 { #category : #'public - importing' }
 CCTModel >> importConnectionsFromFilename: aFullFilename [
 "/Users/alexandrebergel/Desktop/connections.tsv "
@@ -173,6 +210,27 @@ CCTModel >> visualizeActiveProcesses [
 	lb build.
 	
 	^ b view
+]
+
+{ #category : #visualizations }
+CCTModel >> visualizeArcsAndLines [
+	| view b |
+	b := RTMondrian new.
+	view := b view.
+	b shape circle.
+	b nodes: ccts.
+	b normalizer
+		normalizeSize: #numberOfProcesses "min: 5 max: 50 using: #log";
+		normalizeColor: #numberOfProcesses.
+	b layout horizontalTree horizontallyReverse
+		horizontalGap: 200;
+		verticalGap: 15.
+	b edges
+		moveBehind;
+		connectFrom: #parent.
+	b build.
+	view elements do: [ :e | self createArcsFor: e in: view ].
+	^ view
 ]
 
 { #category : #visualizations }
