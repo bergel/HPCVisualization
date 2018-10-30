@@ -276,8 +276,8 @@ CCTModel >> visualizeComputingUnits [
 	lb view: b view.
 	lb addText: 'This visualizations indicates how processing units are used'.
 	lb addText: 'Box = a processing unit (e.g., a core, a thread)'.
-	lb addText: 'Box height = the maximum value of consumption'.
-	lb addText: 'Box width = the minimum value of consumption'.
+	lb addText: 'Box height = the minimum value of consumption'.
+	lb addText: 'Box width = the maximum value of consumption'.
 	lb addColorFadingFrom: Color gray to: Color red text: 'Average of consumption (gray = low consumption, and red = high)'.
 	lb build.
 	
