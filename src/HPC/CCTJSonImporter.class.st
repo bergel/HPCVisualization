@@ -6,6 +6,7 @@ Class {
 
 { #category : #'public - importing' }
 CCTJSonImporter >> importFromFile: aFilename [
+	<script: '(CCTJSonImporter new importFromFile: ''/Users/alexandrebergel/Dropbox/GitRepos/HPCVisualization/data/zeusmp2_512_trace/zeusmp2_execution_fixed.json'') inspect'>
 	"
 	CCTJSonImporter new importFromFile: '/Users/alexandrebergel/Dropbox/GitRepos/HPCVisualization/data/zeusmp2_512_trace/zeusmp2_execution_fixed.json'.
 	

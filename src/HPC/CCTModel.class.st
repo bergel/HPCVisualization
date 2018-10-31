@@ -291,7 +291,7 @@ CCTModel >> visualizeFunctionGraph [
 	b shape circle.
 	b interaction highlightNeighbors: #outgoingFunctions color: Color green trans.
 	b nodes: functions.
-	b layout force.
+	b layout force charge: -300.
 	b normalizer
 		normalizeColor: #numberOfNodes;
 		normalizeSize: #numberOfNodes;
